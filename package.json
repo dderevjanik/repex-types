@@ -1,0 +1,17 @@
+{
+  "name": "repex-types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/Index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "io-ts": "^0.8.2"
+  }
+}
