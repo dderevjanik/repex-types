@@ -8,3 +8,14 @@ export namespace AppResponse {
         email: string
     }
 }
+
+export namespace Errors {
+    export interface ResponseError500 {
+        message: string,
+        statusCode: '500'
+    }
+    export interface ResponseError400 {
+        message: string;
+        statusCode: '400';
+    }
+}
