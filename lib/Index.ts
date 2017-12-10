@@ -1,2 +1,2 @@
 export { AppRequest } from './ApiTypes/Request';
-export { AppResponse, Errors } from './ApiTypes/Response';
+export { AppResponse, GithubResponse, Errors } from './ApiTypes/Response';
