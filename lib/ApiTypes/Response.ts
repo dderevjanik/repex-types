@@ -9,7 +9,8 @@ export namespace AppResponse {
     }
 
     export type LoginUser = ILoginUser | Errors.AnyResponseError;
-    export type User = IUser | Errors.AnyResponseError
+    export type User = IUser | Errors.AnyResponseError;
+    export type IntegrationSaved = true | Errors.AnyResponseError
 }
 
 export namespace GithubResponse {
