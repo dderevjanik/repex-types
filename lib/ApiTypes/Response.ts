@@ -1,3 +1,5 @@
+import { repoOwner } from "../../../repex-backend/lib/interfaces/Integration";
+
 export namespace AppResponse {
     export interface ILoginUser {
         email: string
@@ -11,15 +13,13 @@ export namespace AppResponse {
     export type LoginUser = ILoginUser | Errors.AnyResponseError;
     export type User = IUser | Errors.AnyResponseError;
     export type IntegrationSaved = true | Errors.AnyResponseError
+    export type PersonDataSaved = true | Errors.AnyResponseError
 }
 
 export namespace GithubResponse {
     export interface IRepo {
         id: number,
-        owner: {
-            login: string,
-            id: number,
-        },
+        owner: repoOwner,
         name: string,
         full_name: string,
         description: string,
