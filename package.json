@@ -2,13 +2,16 @@
   "name": "repex-types",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/Index.ts",
+  "main": "dist/Index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --write lib/**/*.{ts,tsx,json}"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "prettier": "^1.10.2",
     "typescript": "^2.6.1"
   },
   "dependencies": {
