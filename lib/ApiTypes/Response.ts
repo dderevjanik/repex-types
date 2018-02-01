@@ -46,7 +46,8 @@ export namespace GithubResponse {
     full_name: t.string,
     description: t.string,
   });
-  export type IRepo = t.TypeOf<typeof IORepo>
+
+  export type IRepo = t.TypeOf<typeof IORepo>;
 
   export type ListRepo = IRepo[] | Errors.AnyResponseError;
 }
