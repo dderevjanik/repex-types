@@ -1,8 +1,9 @@
 {
   "name": "repex-types",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.8",
+  "description": "Interface for REPEX",
   "main": "dist/Index.js",
+  "typings": "dist/Index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
