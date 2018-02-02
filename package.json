@@ -1,7 +1,7 @@
 {
   "name": "repex-types",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.5",
+  "description": "Interface for REPEX",
   "main": "dist/Index.js",
   "scripts": {
     "build": "tsc",
