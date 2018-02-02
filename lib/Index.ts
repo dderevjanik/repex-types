@@ -1,3 +1,4 @@
+export { ApiRoutes } from './ApiTypes/ApiRoutes';
 export { AppRequest, GithubRequest } from './ApiTypes/Request';
 export { AppResponse, GithubResponse, Errors } from './ApiTypes/Response';
 
@@ -11,6 +12,3 @@ export {
   EventUncaughtError
 } from './Events';
 
-export {
-  ApiRoutes
-} from './ApiTypes/Endpoints';

@@ -1,6 +1,6 @@
 {
   "name": "repex-types",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Interface for REPEX",
   "main": "dist/Index.js",
   "scripts": {
