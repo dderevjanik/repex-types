@@ -30,7 +30,7 @@ export namespace AppResponse {
 
 export namespace GithubResponse {
   export const IOCreateIssue = t.interface({
-    status: t.boolean,
+    id: t.string
   });
   export type ICreateIssue = t.TypeOf<typeof IOCreateIssue>;
 

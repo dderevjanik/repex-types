@@ -14,7 +14,3 @@ export type ApiRoutes = {
     // GET
     '/api/v1/github/repo': { type: 'GET', payload: null, response: GithubResponse.ListRepo }
 }
-
-export type Endpoints = {
-    [R in keyof ApiRoutes]: (payload: ApiRoutes[R]['payload']) => ApiRoutes[R]['response']
-}
