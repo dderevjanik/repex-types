@@ -10,3 +10,7 @@ export {
   EventPromiseError,
   EventUncaughtError
 } from './Events';
+
+export {
+  ApiRoutes
+} from './ApiTypes/Endpoints';
