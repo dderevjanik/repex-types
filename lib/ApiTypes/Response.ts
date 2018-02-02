@@ -2,22 +2,26 @@ import * as t from 'io-ts';
 
 export namespace AppResponse {
   export const IOLoginUser = t.interface({
+    type: t.literal('data'),
     email: t.string,
     token: t.string
   });
   export type ILoginUser = t.TypeOf<typeof IOLoginUser>;
 
   export const IOUser = t.interface({
+    type: t.literal('data'),
     email: t.string
   });
   export type IUser = t.TypeOf<typeof IOUser>
 
   export const IOIntegrationSaved = t.interface({
+    type: t.literal('data'),
     status: t.boolean,
   });
   export type IIntegrationSaved = t.TypeOf<typeof IOIntegrationSaved>;
 
   export const IOPersonDataSaved = t.interface({
+    type: t.literal('data'),
     status: t.boolean,
   });
   export type IPersonDataSaved = t.TypeOf<typeof IOPersonDataSaved>;
@@ -30,6 +34,7 @@ export namespace AppResponse {
 
 export namespace GithubResponse {
   export const IOCreateIssue = t.interface({
+    type: t.literal('data'),
     id: t.string
   });
   export type ICreateIssue = t.TypeOf<typeof IOCreateIssue>;
@@ -37,6 +42,7 @@ export namespace GithubResponse {
   export type CreateIssue = ICreateIssue | Errors.AnyResponseError;
 
   export const IORepo = t.interface({
+    type: t.literal('data'),
     id: t.number,
     owner: t.interface({
       login: t.string,
@@ -54,12 +60,14 @@ export namespace GithubResponse {
 
 export namespace Errors {
   export const IOResponseError500 = t.interface({
+    type: t.literal('error'),
     message: t.string,
     statusCode: t.literal('500')
   });
   export type IResponseError500 = t.TypeOf<typeof IOResponseError500>;
 
   export const IOResponseError400 = t.interface({
+    type: t.literal('error'),
     message: t.string,
     statusCode: t.literal('400')
   });
