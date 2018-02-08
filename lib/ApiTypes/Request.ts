@@ -1,28 +1,49 @@
-import { integrationType, repoOwner } from '../../../repex-backend/lib/interfaces/Integration';
+import * as t from 'io-ts';
+import { TypeOf } from 'io-ts';
+import { EVENT } from '../Events';
 
 export namespace AppRequest {
-  export interface LoginUser {
-    email: string;
-    password: string;
-  }
+  //Login user request types
+  export const IOLoginUser = t.interface({
+    email: t.string,
+    password: t.string
+  });
+  export type ILoginUser = t.TypeOf<typeof IOLoginUser>;
 
-  export interface UserIntegrationData {
-    integrationType: integrationType;
-    repositoryName: string;
-    repositoryId: string;
-    repositoryOwner: repoOwner;
-  }
+  // User Integration update request types
+  export const IntegrationTypeUnion = t.union([
+    t.literal(""),
+    t.literal("Github"),
+    t.literal("Trello"),
+    t.literal("TargetProcess"),
+    t.literal("BitBucket")
+  ]);
 
-  export interface UserPersonData {
-    firstName: string;
-    lastName: string;
-  }
+  export const IOUserIntegrationData = t.interface({
+    integrationType: IntegrationTypeUnion,
+    repositoryName: t.string,
+    repositoryId: t.string,
+    repositoryOwner: t.interface({
+      login: t.string,
+      id: t.number,
+    }),
+  });
+  export type IUserIntegrationData = t.TypeOf<typeof IOUserIntegrationData>;
+
+  // User person data update request
+  export const IOUserPersonData = t.interface({
+    firstName: t.string,
+    lastName: t.string,
+  });
+  export type IUserPersonData = t.TypeOf<typeof IOUserPersonData>;
 }
 
 export namespace GithubRequest {
-  export interface Issue {
-    title: string;
-    body: string;
-    imageBase64: string;
-  }
+  export const IOIssue = t.interface({
+    title: t.string,
+    body: t.string,
+    imageBase64: t.string,
+    events: t.array(EVENT)
+  });
+  export type IIssue = t.TypeOf<typeof IOIssue>;
 }

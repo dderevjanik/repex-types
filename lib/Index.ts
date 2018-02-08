@@ -1,3 +1,4 @@
+export { ApiRoutes } from './ApiTypes/ApiRoutes';
 export { AppRequest, GithubRequest } from './ApiTypes/Request';
 export { AppResponse, GithubResponse, Errors } from './ApiTypes/Response';
 
@@ -10,3 +11,4 @@ export {
   EventPromiseError,
   EventUncaughtError
 } from './Events';
+
