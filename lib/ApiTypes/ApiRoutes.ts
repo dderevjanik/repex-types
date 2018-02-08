@@ -5,11 +5,11 @@ export type ApiRoutes = {
     // POST
     '/api/v1/user/login': { type: 'POST', payload: AppRequest.ILoginUser, response: AppResponse.LoginUser }
 
-    '/api/v1/person/update': { type: 'POST', payload: AppRequest.IUserPersonData, response: AppResponse.PersonDataSaved }
+    '/api/v1/user/person/update': { type: 'POST', payload: AppRequest.IUserPersonData, response: AppResponse.PersonDataSaved }
 
     '/api/v1/issue/create': { type: 'POST', payload: GithubRequest.IIssue, response: GithubResponse.CreateIssue }
 
-    '/api/v1/integration/update': { type: 'POST', payload: AppRequest.IUserIntegrationData, response: AppResponse.IntegrationSaved }
+    '/api/v1/user/integration/update': { type: 'POST', payload: AppRequest.IUserIntegrationData, response: AppResponse.IntegrationSaved }
 
     // GET
     '/api/v1/github/repo': { type: 'GET', payload: null, response: GithubResponse.ListRepo }

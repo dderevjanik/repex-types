@@ -42,7 +42,6 @@ export namespace GithubResponse {
   export type CreateIssue = ICreateIssue | Errors.AnyResponseError;
 
   export const IORepo = t.interface({
-    type: t.literal('data'),
     id: t.number,
     owner: t.interface({
       login: t.string,
@@ -53,9 +52,14 @@ export namespace GithubResponse {
     description: t.string,
   });
 
-  export type IRepo = t.TypeOf<typeof IORepo>;
+  export const IORepoResponse = t.interface({
+    type: t.literal('data'),
+    repositories: t.array(IORepo)
+  })
 
-  export type ListRepo = IRepo[] | Errors.AnyResponseError;
+  export type IRepo = t.TypeOf<typeof IORepo>;
+  export type IRepoResponse = t.TypeOf<typeof IORepoResponse>
+  export type ListRepo = IRepoResponse | Errors.AnyResponseError;
 }
 
 export namespace Errors {
