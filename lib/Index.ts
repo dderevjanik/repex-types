@@ -9,6 +9,14 @@ export {
   EventInput,
   EventNetwork,
   EventPromiseError,
-  EventUncaughtError
+  EventUncaughtError,
+
+  IOEVENT,
+  IOEventClick,
+  IOEventConsoleError,
+  IOEventInput,
+  IOEventNetwork,
+  IOEventPromiseError,
+  IOEventUncaughtError
 } from './Events';
 
