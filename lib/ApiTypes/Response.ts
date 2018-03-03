@@ -1,6 +1,7 @@
 import * as t from 'io-ts';
+import { EVENT } from '../Events';
 
-export namespace AppResponse {
+export namespace UserResponse {
   export const IOLoginUser = t.interface({
     type: t.literal('data'),
     email: t.string,
@@ -32,7 +33,8 @@ export namespace AppResponse {
   export type PersonDataSaved = IPersonDataSaved | Errors.AnyResponseError;
 }
 
-export namespace GithubResponse {
+export namespace IssueResponse {
+  // CREATE
   export const IOCreateIssue = t.interface({
     type: t.literal('data'),
     id: t.string
@@ -41,6 +43,28 @@ export namespace GithubResponse {
 
   export type CreateIssue = ICreateIssue | Errors.AnyResponseError;
 
+  // GET
+  export const IOIssue = t.interface({
+    _id: t.any,
+    title: t.string,
+    body: t.string,
+    imageBase64: t.string,
+    events: t.array(EVENT)
+  });
+
+  export const IOListIssue = t.interface({
+    type: t.literal('data'),
+    issues: t.array(IOIssue)
+  })
+
+  export type IIssue = t.TypeOf<typeof IOIssue>;
+  export type IListIssue = t.TypeOf<typeof IOListIssue>;
+
+  export type Issue = IIssue | Errors.AnyResponseError;
+  export type ListIssues = IListIssue | Errors.AnyResponseError;
+}
+
+export namespace GithubResponse {
   export const IORepo = t.interface({
     id: t.number,
     owner: t.interface({

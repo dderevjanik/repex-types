@@ -1,6 +1,6 @@
 export { ApiRoutes } from './ApiTypes/ApiRoutes';
-export { AppRequest, GithubRequest } from './ApiTypes/Request';
-export { AppResponse, GithubResponse, Errors } from './ApiTypes/Response';
+export { IssueRequest, UserRequest } from './ApiTypes/Request';
+export { IssueResponse, UserResponse, GithubResponse, Errors } from './ApiTypes/Response';
 
 export {
   EVENT,

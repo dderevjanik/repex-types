@@ -16,6 +16,6 @@
     "typescript": "^2.7.1"
   },
   "dependencies": {
-    "io-ts": "^0.9.8"
+    "io-ts": "^1.0.5"
   }
 }

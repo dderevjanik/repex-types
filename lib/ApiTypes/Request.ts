@@ -2,7 +2,7 @@ import * as t from 'io-ts';
 import { TypeOf } from 'io-ts';
 import { EVENT } from '../Events';
 
-export namespace AppRequest {
+export namespace UserRequest {
   //Login user request types
   export const IOLoginUser = t.interface({
     email: t.string,
@@ -38,7 +38,7 @@ export namespace AppRequest {
   export type IUserPersonData = t.TypeOf<typeof IOUserPersonData>;
 }
 
-export namespace GithubRequest {
+export namespace IssueRequest {
   export const IOIssue = t.interface({
     title: t.string,
     body: t.string,
@@ -46,4 +46,12 @@ export namespace GithubRequest {
     events: t.array(EVENT)
   });
   export type IIssue = t.TypeOf<typeof IOIssue>;
+
+  // filtered issues
+  export const IOFilteredIssues = t.interface({
+    page: t.number,
+    pageSize: t.number,
+    searchText: t.union([t.string, t.nullType])
+  });
+  export type IFilteredIssues = t.TypeOf<typeof IOFilteredIssues>;
 }
