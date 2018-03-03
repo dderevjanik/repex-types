@@ -1,5 +1,5 @@
 import * as t from 'io-ts';
-import { EVENT } from '../Events';
+import { EVENT, IOEVENT } from '../Events';
 
 export namespace UserResponse {
   export const IOLoginUser = t.interface({
@@ -49,7 +49,7 @@ export namespace IssueResponse {
     title: t.string,
     body: t.string,
     imageBase64: t.string,
-    events: t.array(EVENT)
+    events: t.array(IOEVENT)
   });
 
   export const IOListIssue = t.interface({

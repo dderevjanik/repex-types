@@ -2,11 +2,11 @@ import * as t from 'io-ts';
 
 // #region Base
 
-export const Log = t.interface({
+export const IOLog = t.interface({
   date: t.number
 });
 
-export const MouseClick = t.interface({
+export const IOMouseClick = t.interface({
   x: t.number,
   y: t.number
 });
@@ -15,7 +15,7 @@ export const MouseClick = t.interface({
 
 // #region Events
 
-export const EventNetwork = t.intersection([
+export const IOEventNetwork = t.intersection([
   t.interface({
     type: t.literal('NETWORK'),
     url: t.string,
@@ -23,12 +23,12 @@ export const EventNetwork = t.intersection([
     responseStatus: t.number,
     responseText: t.string
   }),
-  Log
+  IOLog
 ]);
-export type EventNetwork = t.TypeOf<typeof EventNetwork>;
+export type EventNetwork = t.TypeOf<typeof IOEventNetwork>;
 
-export const EventInput = t.intersection([
-  Log,
+export const IOEventInput = t.intersection([
+  IOLog,
   t.interface({
     type: t.literal('INPUT'),
     value: t.string,
@@ -36,50 +36,50 @@ export const EventInput = t.intersection([
     elementPath: t.array(t.string)
   })
 ]);
-export type EventInput = t.TypeOf<typeof EventInput>;
+export type EventInput = t.TypeOf<typeof IOEventInput>;
 
-export const EventClick = t.intersection([
-  Log,
-  MouseClick,
+export const IOEventClick = t.intersection([
+  IOLog,
+  IOMouseClick,
   t.interface({
     type: t.literal('CLICK'),
     elementId: t.string,
     elementPath: t.array(t.string)
   })
 ]);
-export type EventClick = t.TypeOf<typeof EventClick>;
+export type EventClick = t.TypeOf<typeof IOEventClick>;
 
-export const EventPromiseError = t.interface({
+export const IOEventPromiseError = t.interface({
   type: t.literal('EVENT_PROMISE_ERROR'),
   message: t.string,
   stack: t.array(t.any)
 });
-export type EventPromiseError = t.TypeOf<typeof EventPromiseError>;
+export type EventPromiseError = t.TypeOf<typeof IOEventPromiseError>;
 
-export const EventUncaughtError = t.interface({
+export const IOEventUncaughtError = t.interface({
   type: t.literal('EVENT_UNCAUGHT_ERROR'),
   url: t.string,
   line: t.string,
   col: t.string,
   text: t.string
 });
-export type EventUncaughtError = t.TypeOf<typeof EventUncaughtError>;
+export type EventUncaughtError = t.TypeOf<typeof IOEventUncaughtError>;
 
-export const EventConsoleError = t.interface({
+export const IOEventConsoleError = t.interface({
   type: t.literal('EVENT_CONSOLE_ERROR'),
   args: t.union([t.array(t.string), t.string])
 });
-export type EventConsoleError = t.TypeOf<typeof EventConsoleError>;
+export type EventConsoleError = t.TypeOf<typeof IOEventConsoleError>;
 
 // #endregion
 
-export const EVENT = t.union([
-  EventClick,
-  EventInput,
-  EventNetwork,
-  EventPromiseError,
-  EventUncaughtError,
-  EventConsoleError
+export const IOEVENT = t.union([
+  IOEventClick,
+  IOEventInput,
+  IOEventNetwork,
+  IOEventPromiseError,
+  IOEventUncaughtError,
+  IOEventConsoleError
 ]);
 
 export type EVENT = EventClick | EventInput | EventNetwork | EventPromiseError | EventUncaughtError | EventConsoleError;

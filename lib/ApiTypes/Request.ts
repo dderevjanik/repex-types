@@ -1,6 +1,6 @@
 import * as t from 'io-ts';
 import { TypeOf } from 'io-ts';
-import { EVENT } from '../Events';
+import { IOEVENT } from '../Events';
 
 export namespace UserRequest {
   //Login user request types
@@ -43,7 +43,7 @@ export namespace IssueRequest {
     title: t.string,
     body: t.string,
     imageBase64: t.string,
-    events: t.array(EVENT)
+    events: t.array(IOEVENT)
   });
   export type IIssue = t.TypeOf<typeof IOIssue>;
 
