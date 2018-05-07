@@ -37,7 +37,7 @@ export namespace IssueResponse {
   // CREATE
   export const IOCreateIssue = t.interface({
     type: t.literal('data'),
-    id: t.string
+    id: t.number
   });
   export type ICreateIssue = t.TypeOf<typeof IOCreateIssue>;
 
